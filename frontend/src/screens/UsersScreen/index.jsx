@@ -1,30 +1,21 @@
 import './usersScreen.css';
 import Header from '../../components/Header';
 import UserCard from '../../components/UserCard';
+import { useState, useEffect } from 'react';
+import api from '../../api/api';
 
 function UsersScreen(){
-    const users = [
-        {
-            id: 1,
-            name: "Julia Soares",
-            email: "julia@email.com",
-        },
-        {
-            id: 2,
-            name: "Amanda Teles",
-            email: "amanda@email.com",
-        },
-        {
-            id: 3,
-            name: "Conceição Jatoba",
-            email: "conceicao@email.com",
-        },
-        {
-            id: 4,
-            name: "Beatriz Lira",
-            email: "beatriz@email.com",
-        },
-    ]
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(()=>{
+        async function getUsers(){
+            const response = await api.get('/users');
+            setUsers(response.data);
+        }
+
+        getUsers();
+    },[]);
 
     return(
         <>
@@ -41,6 +32,7 @@ function UsersScreen(){
             </main>
         </>
     );
+
 }
 
 export default UsersScreen;
