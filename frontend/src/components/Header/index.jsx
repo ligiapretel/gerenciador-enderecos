@@ -1,12 +1,12 @@
 import './header.css';
+import { NavLink } from 'react-router-dom';
 
 function Header({title}){
 
     return(
         <header>
-            <a href="#">Usuários</a>
-            <a href="#">Cadastrar usuário</a>
-            <a href="#">Cadastrar endereço</a>
+            <NavLink to='/'>Usuários</NavLink>
+            <NavLink to='/registro'>Cadastrar usuário</NavLink>
             <h1>{title}</h1>
         </header>
     );

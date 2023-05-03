@@ -27,6 +27,7 @@ function UsersScreen(){
                             id={user.id} 
                             name={user.name} 
                             email={user.email}
+                            addresses={user.addresses}
                         /> 
                 )}
             </main>
